@@ -10,56 +10,22 @@ fun recursivePrintPreOrder(tree: PreOrderNode?) {
 }
 
 fun printPreOrder(tree: PreOrderNode) {
-    println(tree.data)
-
     val stack = Stack()
     var current: PreOrderNode? = tree
 
     while (current != null) {
-        val left = current?.left
-        val right = current?.right
+        println(current.data)
+
+        val left = current.left
+        val right = current.right
 
         if (left == null) {
             current = stack.pop()
-            current?.let { println(it.data) }
         } else {
-            println(left.data)
             current = left
             if (right != null) stack.push(right)
         }
     }
-
-//    val stack = Stack(StackElement(tree))
-//    println(tree.data)
-//
-//    while (stack.hasElements()) {
-//        val element = stack.peek()
-//        when {
-//            element.left -> {
-//                val node = element.node.left
-//                if (node == null) {
-//                    stack.pop()
-//                } else {
-//                    element.left = false
-//                    println(node.data)
-//                    stack.push(StackElement(node))
-//                }
-//            }
-//
-//            element.right -> {
-//                val node = element.node.right
-//                if (node == null) {
-//                    stack.pop()
-//                } else {
-//                    element.right = false
-//                    println(node.data)
-//                    stack.push(StackElement(node))
-//                }
-//            }
-//
-//            else -> stack.pop()
-//        }
-//    }
 }
 
 class Stack {
@@ -75,21 +41,3 @@ class Stack {
 
     fun hasElements() = stack.isNotEmpty()
 }
-
-//class StackElement(val node: PreOrderNode)
-
-
-//class Stack(seed: StackElement) {
-//    private val stack = mutableListOf(seed)
-//
-//    fun push(element: StackElement) {
-//        stack.add(element)
-//    }
-//
-//    fun pop() = stack.removeAt(stack.size-1)
-//
-//    fun peek() = stack[stack.size-1]
-//
-//    fun hasElements() = stack.isNotEmpty()
-//}
-
