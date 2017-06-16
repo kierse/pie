@@ -10,7 +10,7 @@ fun recursivePrintPreOrder(tree: PreOrderNode?) {
 }
 
 fun printPreOrder(tree: PreOrderNode) {
-    val stack = Stack()
+    val stack = PreOrderNodeStack()
     var current: PreOrderNode? = tree
 
     while (current != null) {
@@ -28,7 +28,7 @@ fun printPreOrder(tree: PreOrderNode) {
     }
 }
 
-class Stack {
+class PreOrderNodeStack {
     private val stack = mutableListOf<PreOrderNode>()
 
     fun push(node: PreOrderNode) {
