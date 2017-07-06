@@ -41,9 +41,23 @@ class TelephoneWordsTest {
     }
 
     @Test
+    fun printWordsRecursively__too_cool() {
+        val time = measureNanoTime {
+            TelephoneWords.printWordsRecursively(intArrayOf(8,6,6,2,6,6,5))
+        }
+        println(time)
+    }
+
+    @Test
+    fun printWordsRecursively__ones_and_zeros() {
+        TelephoneWords.printWordsRecursively(intArrayOf(0,1)) // should only print one word
+    }
+
+    @Test
     fun printWords__too_cool() {
         val time = measureNanoTime {
-            TelephoneWords.printWords(intArrayOf(8,6,6,2,6,6,5))
+//            TelephoneWords.printWords(intArrayOf(8,6,6,2,6,6,5))
+            TelephoneWords.printWords(intArrayOf(2,2,2))
         }
         println(time)
     }
